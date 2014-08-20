@@ -1,0 +1,12 @@
+.container
+  %h2.title-line-red Add a new topic
+
+  .pad-bot
+
+  = form_for @todo do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.hidden_field :done, :value => false
+    = f.submit "Add"
+
+  = link_to "Back", todos_path, :class => "btn btn-default pull-right"

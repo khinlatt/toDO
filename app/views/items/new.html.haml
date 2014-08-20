@@ -1,0 +1,11 @@
+.container
+  %h2.title-line-blue Add a new task
+
+  .pad-bot
+
+  = form_for [@todo, @item] do |f|
+    = f.label :description
+    = f.text_field :description
+    = f.submit "Add Task"
+
+  = link_to "Back", todo_items_path, :class => "btn btn-default pull-right"

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToDo</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="./../../assets/stylesheets/custom.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+      <h1 class="text-center">
+        <%= link_to "toDO", root_path %>
+      </h1>
+      <h3 class="text-center"><em class="font-white">One app you could rely on</em></h3>
+  </div>
+</div>
+
+<div class="container text-right pad-bot">
+  <% if user_signed_in? %>
+      You are currently signed in as <%= current_user.email %>, not you?
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+
+  <% flash.each do |name, message| %>
+      <%= content_tag :div, message, :id => "flash_#{name}" %>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

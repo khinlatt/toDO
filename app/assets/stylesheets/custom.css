@@ -1,0 +1,56 @@
+/* Borders, Paddings and Margins */
+
+.custom-well{
+  border: 1px solid;
+  padding: 10px 20px 40px 20px;
+}
+
+.mar-bot{
+  margin-bottom: 20px;
+}
+
+.pad-bot{
+  padding-bottom: 20px;
+}
+
+
+
+/* Design related */
+
+.title-line-blue{
+  border-bottom: 5px solid #6688ef;
+}
+
+.title-line-red{
+  border-bottom: 5px solid #a51b0a;
+}
+
+/* Text related */
+
+.font-white{
+  color: #fff;
+}
+
+.text-link-hover:hover{
+  text-decoration: none;
+}
+
+.cross-line{
+  text-decoration: line-through;
+}
+
+.container .note{
+  font-size: 20px;
+}
+
+.todo-color{
+  color: #b31e0d;
+}
+
+.todone-color{
+  color: #44a62c;
+}
+
+.navbar > .container > h1 > a:hover{
+  text-decoration: none;
+}
