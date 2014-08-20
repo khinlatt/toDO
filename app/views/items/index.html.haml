@@ -1,29 +1,30 @@
-.container.custom-well
-  %h2.todo-color.text-center= "#{@todo.name} - Tasks To-Do"
+.container-fluid
+  .col-md-12.custom-well
+    %h2.todo-color.text-center= "#{@todo.name} - Tasks To-Do"
 
-  - @doitems.each do |i|
-    %table.table
-      %tr
-        %td
-          .note= "> #{i.description}"
-        %td
+    - @doitems.each do |i|
+      %table.table
+        %tr
+          %td
+            .note= "- #{i.description}"
+          %td
+            .text-right
+              %small= link_to "Edit", edit_todo_item_path(@todo, i), :method => :get
+              |
+              %small= link_to "Mark as Done", markasdone_todo_item_path(@todo, i), :method => :post
+              |
+              %small= link_to "Delete", todo_item_path(@todo, i), :confirm => "Are you sure?", :method => :delete
+    .pull-right
+      = link_to "Add Task", new_todo_item_path(@todo), :class => "font-white btn btn-warning"
+
+  .col-md-12
+    %h2.todone-color.text-center= "Tasks Done"
+
+    .well
+      - @doneitems.each do |i|
+        %ul
+          .note.cross-line= "#{i.description}"
           .pull-right
-            = link_to "Edit", edit_todo_item_path(@todo, i), :method => :get
-            |
-            = link_to "Mark as Done", markasdone_todo_item_path(@todo, i), :method => :post
-            |
-            = link_to "Delete", todo_item_path(@todo, i), :confirm => "Are you sure?", :method => :delete
-  .pull-right
-    = link_to "Add Task", new_todo_item_path(@todo), :class => "font-white btn btn-warning"
+            %small= link_to "Remove", todo_item_path(@todo, i), method: :delete
 
-.container
-  %h2.todone-color.text-center= "Tasks Done"
-
-  .well
-    - @doneitems.each do |i|
-      %ul
-        .note.cross-line= "#{i.description}"
-        .pull-right
-          = link_to "Remove", todo_item_path(@todo, i), method: :delete
-
-  .pull-right= link_to "Back", todos_path, :class => "btn btn-default"
+    .pull-right= link_to "Back", todos_path, :class => "btn btn-default"

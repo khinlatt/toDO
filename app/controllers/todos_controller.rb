@@ -1,11 +1,13 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @todos = Todo.where(done: false)
-    @todone = Todo.where(done: true)
+    @todos = current_user.todos.where(done: false)
+    @todone = current_user.todos.where(done: true)
   end
 
   def new
-    @todo = Todo.new
+    @todo = current_user.todos.new
   end
 
   def todo_params
@@ -13,7 +15,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    @todo = current_user.todos.new todo_params
 
     if @todo.save
       redirect_to todos_path, :notice => "Your todo task is added!"

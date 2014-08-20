@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @todo = Todo.find(params[:todo_id])
     @doitems = @todo.items.where(done: false)

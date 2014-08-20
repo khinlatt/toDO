@@ -13,17 +13,20 @@
   padding-bottom: 20px;
 }
 
-
+.mar-right{
+  margin-right: 20px;
+}
 
 /* Design related */
 
-.title-line-blue{
-  border-bottom: 5px solid #6688ef;
+.title-line-task{
+  border-bottom: 5px solid #fbb64a;
 }
 
-.title-line-red{
+.title-line-todo{
   border-bottom: 5px solid #a51b0a;
 }
+
 
 /* Text related */
 
